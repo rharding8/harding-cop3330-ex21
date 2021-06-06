@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 Ryan Harding
+ */
+
 package base;
 
 import java.util.Scanner;
@@ -13,7 +18,15 @@ public class MonthNames {
 
   public int getNumber() {
     System.out.print("Please enter the number of the month: ");
-    return input.nextInt();
+    String n = input.next();
+    try {
+      Integer.parseInt(n);
+    }
+    catch (NumberFormatException e) {
+      System.out.println("ERROR: Invalid Amount! Try Again.");
+      return getNumber();
+    }
+    return Integer.parseInt(n);
   }
 
   public String getName(int n) {
